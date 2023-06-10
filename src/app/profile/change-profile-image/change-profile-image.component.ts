@@ -48,8 +48,9 @@ export class ChangeProfileImageComponent implements OnInit {
           // Handle successful response
           console.log(data);
           Swal.fire('Good job!', 'Your Image Updated Successfully', 'success');
+console.log(data.Data);
 
-          this.image = data.image;
+          this.image = data.Data;
         },
         (error: any) => {
           // Handle error
