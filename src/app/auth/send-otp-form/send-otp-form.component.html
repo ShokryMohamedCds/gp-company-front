@@ -1,0 +1,19 @@
+<div class="container">
+  <form [formGroup]="sendOtpForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Otp</mat-label>
+    <input matInput type="text" formControlName="otp" />
+    <mat-error *ngIf="sendOtpForm.get('otp')?.invalid">{{ getEmailErrorMessage() }}</mat-error>
+    <mat-error *ngIf="errors">OTP is Wrong</mat-error>
+
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-raised-button color="primary" type="submit" [disabled]="sendOtpForm.invalid">
+      Send OTP
+    </button>
+  </div>
+</form>
+</div>
+
+

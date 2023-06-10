@@ -1,0 +1,24 @@
+
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  list-style-type: none;
+}
+ul {
+  margin: 0;
+  list-style-type: none;
+}
+.nav-item.dropdown{
+  padding: 4px;
+  border-radius: 10px;
+}
+.nav-item.dropdown:hover{
+  background-color: grey;
+}
+.dropdown-menu{
+
+--bs-dropdown-link-active-bg:grey !important;
+}
+

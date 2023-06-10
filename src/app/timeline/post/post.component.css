@@ -1,0 +1,27 @@
+.example-card {
+  max-width: 35%;
+}
+a{
+  color: black;
+}
+.example-header-image {
+  background-size: cover;
+}
+.change-color{
+  color: deepskyblue;
+}
+section{
+  transition: 0.5 ease-in-out;
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-2"] {
+    display: none;
+  }
+  .example-card {
+    max-width: 100%;
+  }
+
+}

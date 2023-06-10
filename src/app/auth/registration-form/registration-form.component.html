@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <h1>Registration Form</h1>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>User Name</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            placeholder="Enter User Name"
+            required
+          />
+          <mat-error *ngIf="registrationForm.controls['name'].invalid"
+            >Please enter a valid user name</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            placeholder="Enter User email"
+            required
+          />
+          <mat-error *ngIf="registrationForm.controls['email'].invalid"
+            >Please enter a valid Email</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" required />
+          <mat-error *ngIf="registrationForm.controls['password'].invalid"
+            >Password is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="form-field" appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="tel" formControlName="number" required />
+          <mat-error *ngIf="registrationForm.controls['number'].invalid"
+            >Phone number is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Select a country</mat-label>
+          <mat-select
+            formControlName="country"
+            (selectionChange)="onCountrySelection($event.value)"
+          >
+            <mat-option *ngFor="let country of countries" [value]="country">
+              {{ country }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Select a city</mat-label>
+          <mat-select [disabled]="!cities.length" formControlName="city">
+            <mat-option *ngFor="let city of cities" [value]="city">
+              {{ city }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</div>

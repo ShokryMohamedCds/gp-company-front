@@ -1,0 +1,284 @@
+<section style="background-color: #eee">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img
+              [src]="userData.image || noimage"
+              alt="avatar"
+              class="rounded-circle img-fluid circle-image"
+            />
+
+            <h5 *ngIf="userData.name" class="my-3">{{ userData.name }}</h5>
+            <span *ngIf="userData.jobTitles.length">
+              <span
+                *ngFor="let title of userData.jobTitles"
+                class="text-muted mb-1"
+              >
+                {{ title.name }}
+              </span>
+            </span>
+
+            <p *ngIf="userData.email" class="text-muted mb-4">
+              {{ userData.email }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row" *ngIf="userData.name">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.name }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.name">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.minSalary">
+              <div class="col-sm-3">
+                <p class="mb-0">Minimum Salary</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  {{ userData.minSalary.value }}
+                  {{ userData.minSalary.currency }}
+                </p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.minSalary">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.currentCareerlevel">
+              <div class="col-sm-3">
+                <p class="mb-0">Current Career Level</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.currentCareerlevel }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.currentCareerlevel">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.jopType">
+              <div class="col-sm-3">
+                <p class="mb-0">Job Type</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.jopType }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.jopType">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.currentEducationalLevel">
+              <div class="col-sm-3">
+                <p class="mb-0">Current Educational Level</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  {{ userData.currentEducationalLevel }}
+                </p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.currentEducationalLevel">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.number">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.number }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.number">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.city">
+              <div class="col-sm-3">
+                <p class="mb-0">City</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.city }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.city">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.country">
+              <div class="col-sm-3">
+                <p class="mb-0">Country</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.country }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.country">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.address">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.address }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.address">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.email">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.email }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.email">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.birthdate">
+              <div class="col-sm-3">
+                <p class="mb-0">Birthdate</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  {{ userData.birthdate | date : "dd-MM-yyyy" }}
+                </p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.birthdate">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.title">
+              <div class="col-sm-3">
+                <p class="mb-0">Title</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.title }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.title">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.industry">
+              <div class="col-sm-3">
+                <p class="mb-0">Industry</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.industry }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.industry">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.yearsOfExperience">
+              <div class="col-sm-3">
+                <p class="mb-0">Years of Experience</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.yearsOfExperience }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.yearsOfExperience">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.skills.length">
+              <div class="col-sm-3">
+                <p class="mb-0">Skills</p>
+              </div>
+              <div class="col-sm-9">
+                <ul class="list-unstyled">
+                  <li *ngFor="let skill of userData.skills">
+                    Skill Name : {{ skill.SkillName }} &nbsp; Years of
+                    Experience : {{ skill.yearsOfExperience }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.skills.length">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.fieldOfStudy">
+              <div class="col-sm-3">
+                <p class="mb-0">Field of Study</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.fieldOfStudy }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.fieldOfStudy">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.University">
+              <div class="col-sm-3">
+                <p class="mb-0">University</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.University }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.University">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.GraduationYear">
+              <div class="col-sm-3">
+                <p class="mb-0">Graduation Year</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.GraduationYear }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.GraduationYear">
+              <hr />
+            </ng-container>
+
+            <div class="row" *ngIf="userData.Grade">
+              <div class="col-sm-3">
+                <p class="mb-0">Grade</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ userData.Grade }}</p>
+              </div>
+            </div>
+            <ng-container *ngIf="userData.Grade">
+              <hr />
+            </ng-container>
+            <div class="row" *ngIf="userData.cv">
+              <div class="col-sm-3">
+                <p class="mb-0">CV Link</p>
+              </div>
+              <div class="col-sm-9">
+                <a [href]="userData.cv" target="_blank">{{ userData.cv }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

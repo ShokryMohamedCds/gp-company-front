@@ -1,0 +1,63 @@
+/* CSS */
+
+.dialog-title {
+  color: #ffffff;
+  background-color: #6c757d; /* Gray color */
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.dialog-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #ff4081;
+  border-color: #ff4081;
+  outline: none;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  outline: none;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  filter: brightness(90%);
+}
+
+.mat-error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}

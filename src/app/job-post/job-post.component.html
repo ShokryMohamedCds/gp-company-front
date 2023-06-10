@@ -1,0 +1,353 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="jobForm" (ngSubmit)="submitJobPost()">
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Description</mat-label>
+            <textarea
+              matInput
+              formControlName="description"
+              required
+            ></textarea>
+            <mat-error *ngIf="jobForm.get('description')?.hasError('required')"
+              >Description is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>About the Company</mat-label>
+            <textarea
+              matInput
+              formControlName="aboutTheCompany"
+              required
+            ></textarea>
+            <mat-error
+              *ngIf="jobForm.get('aboutTheCompany')?.hasError('required')"
+              >About the Company is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Job Requirements</mat-label>
+            <textarea
+              matInput
+              formControlName="jobRequirements"
+              required
+            ></textarea>
+            <mat-error
+              *ngIf="jobForm.get('jobRequirements')?.hasError('required')"
+              >Job Requirements is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Industry</mat-label>
+            <mat-select formControlName="industry" required>
+              <mat-option
+                *ngFor="let option of industryOptions"
+                [value]="option"
+                >{{ option }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="jobForm.get('industry')?.hasError('required')"
+              >Industry is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" required />
+            <mat-error *ngIf="jobForm.get('title')?.hasError('required')"
+              >Title is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Employment Type</mat-label>
+            <mat-select formControlName="employmentType" required>
+              <mat-option
+                *ngFor="let option of employmentTypeOptions"
+                [value]="option"
+                >{{ option }}</mat-option
+              >
+            </mat-select>
+            <mat-error
+              *ngIf="jobForm.get('employmentType')?.hasError('required')"
+              >Employment Type is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Working Type</mat-label>
+            <mat-select formControlName="workingType" required>
+              <mat-option
+                *ngFor="let option of workingTypeOptions"
+                [value]="option"
+                >{{ option }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="jobForm.get('workingType')?.hasError('required')"
+              >Working Type is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Select a country</mat-label>
+            <mat-select
+              formControlName="Country"
+              (selectionChange)="onCountrySelection($event.value)"
+            >
+              <mat-option *ngFor="let country of countries" [value]="country">
+                {{ country }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="
+                jobForm.get('Country')?.invalid &&
+                jobForm.get('Country')?.touched
+              "
+            >
+              Country is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Select a city</mat-label>
+            <mat-select [disabled]="!cities.length" formControlName="City">
+              <mat-option *ngFor="let city of cities" [value]="city">
+                {{ city }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="
+                jobForm.get('City')?.invalid && jobForm.get('City')?.touched
+              "
+            >
+              City is required.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Job Type</mat-label>
+            <mat-select formControlName="jobType" required>
+              <mat-option
+                *ngFor="let option of jobTypeOptions"
+                [value]="option"
+                >{{ option }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="jobForm.get('jobType')?.hasError('required')"
+              >Job Type is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Max Age</mat-label>
+            <input matInput type="number" formControlName="maxAge" required />
+            <mat-error *ngIf="jobForm.get('maxAge')?.hasError('required')"
+              >Max Age is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" required />
+            <mat-error *ngIf="jobForm.get('address')?.hasError('required')"
+              >Address is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Skills Must Have</mat-label>
+            <mat-chip-list
+              formArrayName="skillsMustHave"
+              #mustHaveChips
+              required
+            >
+              <mat-chip
+                *ngFor="
+                  let skill of jobForm.get('skillsMustHave')?.value;
+                  let i = index
+                "
+                [formGroupName]="i"
+                [removable]="true"
+                (removed)="removeMustHaveSkill(skill)"
+              >
+                {{ skill }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+            <input
+              matInput
+              [matChipInputFor]="mustHaveChips"
+              (matChipInputTokenEnd)="addMustHaveSkill($event)"
+              placeholder="Add Skill"
+            />
+            <button mat-icon-button color="primary" aria-label="Add Skill">
+              <mat-icon>add</mat-icon>
+            </button>
+            <mat-error
+              *ngIf="jobForm.get('skillsMustHave')?.hasError('required')"
+              >Skills Must Have is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field class="custom-width">
+            <mat-label>Benefits</mat-label>
+            <mat-chip-list formArrayName="Benefits" #benefitsChips required>
+              <mat-chip
+                *ngFor="
+                  let benefit of jobForm.get('Benefits')?.value;
+                  let i = index
+                "
+                [formGroupName]="i"
+                [removable]="true"
+                (removed)="removeBenefit(benefit)"
+              >
+                {{ benefit }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+            </mat-chip-list>
+            <input
+              matInput
+              [matChipInputFor]="benefitsChips"
+              (matChipInputTokenEnd)="addBenefit($event)"
+              placeholder="Add Benefit"
+            />
+            <button mat-icon-button color="primary" aria-label="Add Benefit">
+              <mat-icon>add</mat-icon>
+            </button>
+            <mat-error *ngIf="jobForm.get('Benefits')?.hasError('required')"
+              >Benefits is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="jobForm.invalid"
+      >
+        Add Job Post
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="card mt-5" *ngFor="let item of data">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-body">
+        <h5 class="card-title">Job Details</h5>
+        <div class="row">
+          <div class="col-md-4">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="fw-bold">Title:</span> {{ item.title }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Employment Type:</span>
+                {{ item.employmentType }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">About the Company:</span>
+                {{ item.aboutTheCompany }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Job Requirements:</span>
+                {{ item.jobRequirements }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Working Type:</span>
+                {{ item.workingType }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Job Type:</span> {{ item.jobType }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Industry:</span> {{ item.industry }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Skills Must Have:</span>
+                {{ item.skillsMustHave.join(", ") }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="fw-bold">City:</span> {{ item.City }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Country:</span> {{ item.Country }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Max Age:</span> {{ item.maxAge }}
+              </li>
+
+              <li class="list-group-item">
+                <span class="fw-bold">Address:</span> {{ item.address }}
+              </li>
+              <li class="list-group-item">
+                <span class="fw-bold">Benefits:</span>
+                {{ item.Benefits.join(", ") }}
+              </li>
+              <li class="list-group-item">
+                <h5 class="card-title">About The Comppany</h5>
+                <p class="card-text description">
+                  {{ item.aboutTheCompany }}
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5 class="card-title">Job Description</h5>
+            <p class="card-text description">
+              {{ item.description }}
+            </p>
+            <button
+              mat-raised-button
+              color="primary"
+              [routerLink]="['/jobPost', item._id]"
+            >
+              View Job Post Results
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

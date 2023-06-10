@@ -1,0 +1,91 @@
+/* Customize file input button */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.change-image-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  width: 100px; /* Decreased the width of the button */
+}
+
+/* Customize avatar */
+.avatar {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  display: flex; /* Added to center the image within the div */
+  justify-content: center; /* Added to center the image within the div */
+  align-items: center; /* Added to center the image within the div */
+}
+
+.avatar img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* Customize card */
+.card-header {
+  background-color: #f8f9fa;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+.avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.remove-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 3px gray;
+}
+
+.remove-icon:hover {
+  background-color: red;
+  color: grey;
+}
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #0069d9;
+}
+
+.custom-file-upload i {
+  margin-right: 5px;
+}
+
+input[type="file"] {
+  display: none;
+}

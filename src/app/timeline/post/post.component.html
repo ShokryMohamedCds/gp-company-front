@@ -1,0 +1,74 @@
+<div
+  *ngFor="let post of posts"
+  class="row d-flex justify-content-center card-body"
+>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div
+        *ngIf="post.user.image"
+        mat-card-avatar
+        class="example-header-image"
+        [ngStyle]="{
+          'background-image': 'url(' + post.user.image + ')'
+        }"
+      ></div>
+      <div
+        *ngIf="!post.user.image"
+        mat-card-avatar
+        class="example-header-image"
+        [ngStyle]="{
+          'background-image': 'url(' + noimage + ')'
+        }"
+      ></div>
+      <mat-card-title>{{ post.user.name }}</mat-card-title>
+      <mat-card-subtitle>{{
+        post.createdAt | date : "medium"
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ post.text }}
+      </p>
+    </mat-card-content>
+    <img
+      *ngIf="post.image"
+      mat-card-image
+      [src]="post.image"
+      [alt]="post.text"
+    />
+
+    <mat-card-actions>
+      <button
+        (click)="toggleClass(post)"
+        [class.change-color]="post.isLiked"
+        mat-button
+      >
+        <i [class.change-color]="post.isLiked" class="material-icons"
+          >recommend</i
+        >
+        Like
+      </button>
+      <button (click)="toggleComment(post)" mat-button>
+        <i class="material-icons">comment</i> Comment
+      </button>
+    </mat-card-actions>
+    <section [hidden]="!post.showcomment">
+      <div *ngIf="post.comments" class="container text-dark">
+        <div class="row d-flex">
+          <app-comments
+            *ngIf="post.comments.length > 0"
+            [comment]="[post.comments[0]]"
+            [newComments]="newComments"
+          ></app-comments>
+          <app-comment-form
+            (commentAdded)="onCommentAdded($event)"
+            [post]="post"
+          ></app-comment-form>
+          <button (click)="openDialog(post)" class="text-center" mat-button>
+            <h4>load more comments</h4>
+          </button>
+        </div>
+      </div>
+    </section>
+  </mat-card>
+</div>

@@ -1,0 +1,11 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <mat-form-field id="comment" appearance="fill">
+    <textarea
+      placeholder="Enter Your Comment Here"
+      id="comment"
+      matInput
+      (keydown.enter)="onSubmit()"
+      formControlName="Comment"
+    ></textarea>
+  </mat-form-field>
+</form>

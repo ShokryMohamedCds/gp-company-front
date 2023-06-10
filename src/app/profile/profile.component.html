@@ -1,0 +1,133 @@
+<div class="row">
+  <app-change-profile-image [image]="image"></app-change-profile-image>
+</div>
+<div class="container mt-5">
+  <h1>Profile Data</h1>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()" class="profile-form">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>User Name</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            placeholder="Enter User Name"
+            required
+          />
+          <mat-error *ngIf="myForm.controls['name'].invalid"
+            >Please enter a valid user name</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            placeholder="Enter User email"
+            required
+          />
+          <mat-error *ngIf="myForm.controls['email'].invalid"
+            >Please enter a valid Email</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Number of Employees</mat-label>
+          <input
+            matInput
+            formControlName="numberOfemployee"
+            placeholder="Number of Employees"
+            required
+          />
+          <mat-error *ngIf="myForm.controls['numberOfemployee'].invalid"
+            >Please enter Number of Employees</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>About</mat-label>
+          <textarea
+            matInput
+            formControlName="about"
+            placeholder="About your Company"
+            required
+          ></textarea>
+          <mat-error *ngIf="myForm.controls['about'].invalid"
+            >Please enter about your company</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Industry</mat-label>
+          <mat-select formControlName="industry" required>
+            <mat-option>-- Select Industry --</mat-option>
+            <mat-option *ngFor="let option of industryOptions" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="myForm.controls['industry'].invalid"
+            >Industry is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field class="form-field" appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="tel" formControlName="number" required />
+          <mat-error *ngIf="myForm.controls['number'].invalid"
+            >Phone number is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field class="form-field">
+          <mat-label>Select a country</mat-label>
+          <mat-select
+            formControlName="country"
+            (selectionChange)="onCountrySelection($event.value)"
+          >
+            <mat-option *ngFor="let country of countries" [value]="country">{{
+              country
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="form-field">
+          <mat-label>Select a city</mat-label>
+          <mat-select [disabled]="!cities.length" formControlName="city">
+            <mat-option *ngFor="let city of cities" [value]="city">{{
+              city
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>address</mat-label>
+          <input matInput type="text" formControlName="address" required />
+          <mat-error *ngIf="myForm.controls['address'].invalid"
+            >address is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

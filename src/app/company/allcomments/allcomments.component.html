@@ -1,0 +1,12 @@
+<h2 class="text-center" mat-dialog-title>Comments</h2>
+<mat-dialog-content class="mat-typography">
+  <app-comment-form
+    (commentAdded)="onCommentAdded($event)"
+    [post]="data.post"
+  ></app-comment-form>
+  <app-comments [comment]="data.post.comments"></app-comments>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>

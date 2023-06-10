@@ -1,0 +1,49 @@
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.form-field {
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem;
+}
+
+.mat-form-field-label {
+  color: #333;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mat-form-field-infix input {
+  color: #333;
+}
+
+.mat-form-field-suffix button {
+  color: #333;
+}
+
+.login-button {
+  margin-top: 1rem;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #555;
+}
