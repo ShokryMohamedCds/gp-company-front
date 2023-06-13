@@ -16,6 +16,7 @@ import { DatePipe } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { JoboffersModule } from './joboffers/joboffers.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -35,6 +36,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     DatePipe,
     MatAutocompleteModule,
     RouterModule,
+    JoboffersModule,
   ],
   exports: [
     MatToolbarModule,

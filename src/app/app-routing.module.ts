@@ -33,7 +33,16 @@ const routes: Routes = [
     path: 'user/:id',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
-  { path: 'jobPost', loadChildren: () => import('./job-post/job-post.module').then(m => m.JobPostModule) },
+  {
+    path: 'jobPost',
+    loadChildren: () =>
+      import('./job-post/job-post.module').then((m) => m.JobPostModule),
+  },
+  {
+    path: 'joboffers',
+    loadChildren: () =>
+      import('./joboffers/joboffers.module').then((m) => m.JoboffersModule),
+  },
 ];
 
 @NgModule({

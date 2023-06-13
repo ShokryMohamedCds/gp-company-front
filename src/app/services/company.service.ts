@@ -53,4 +53,8 @@ export class CompanyService {
     const url = `http://localhost:8042/company/sendJoboffer`;
     return this.http.post(url, jobData, this.httpOptions);
   }
+  getJobOffers(): Observable<any> {
+    const url = `http://localhost:8042/company/showMyoffers`;
+    return this.http.get(url, this.httpOptions);
+  }
 }

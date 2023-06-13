@@ -78,7 +78,7 @@ export class JobPostComponent implements OnInit {
       aboutTheCompany: ['', Validators.required],
       skillsMustHave: this.formBuilder.array([], Validators.required),
       jobRequirements: ['', Validators.required],
-      employmentType: ['', Validators.required],
+
       workingType: ['', Validators.required],
       jobType: ['', Validators.required],
       City: [null, Validators.required],

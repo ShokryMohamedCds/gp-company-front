@@ -1,0 +1,34 @@
+<!-- joboffers.component.html -->
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="users" class="mat-table">
+    <!-- Column definitions -->
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef>User ID</th>
+      <td mat-cell *matCellDef="let offer">{{ offer.userId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="jobId">
+      <th mat-header-cell *matHeaderCellDef>Job ID</th>
+      <td mat-cell *matCellDef="let offer">{{ offer.jobId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="offerContent">
+      <th mat-header-cell *matHeaderCellDef>Offer Content</th>
+      <td mat-cell *matCellDef="let offer">{{ offer.offerContent }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="offerType">
+      <th mat-header-cell *matHeaderCellDef>Offer Type</th>
+      <td mat-cell *matCellDef="let offer">{{ offer.offerType }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="offerAcceptance">
+      <th mat-header-cell *matHeaderCellDef>Offer Acceptance</th>
+      <td mat-cell *matCellDef="let offer">{{ offer.offerAcceptance }}</td>
+    </ng-container>
+
+    <!-- Table rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
